@@ -5,8 +5,8 @@ const episodeSchema =  new Schema({
     _id: String,
     name: String,
     season: String,
-    IdCharacter: String,
-    IdPlace: String
+    IdCharacter: {type: String, ref: 'characters', required: true},
+    IdPlace: {type: String, ref: 'places', required: true}
 })
 
 module.exports = mongoose.model('episodes', episodeSchema)

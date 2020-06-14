@@ -10,5 +10,15 @@ module.exports = {
     findAllEpisodes : async(req, res) => {
         const episodes = await Episode.find()
         res.send(episodes)
+    },
+
+    deleteEpisodes : async(req, res) => {
+        const  id  = req.params.id
+        res.send(await Episode.deleteOne({_id:id}))
+    },
+
+    updateEpisodes : async(req, res) =>{
+        const id = req.params.idUpdate
+        res.send(await Episode.updateOne({_id:id}, req.body))
     }
 }
